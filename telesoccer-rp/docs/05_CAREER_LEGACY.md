@@ -1,60 +1,136 @@
-# 05 — Carreira e Legado
+# 05 — Carreira, Aposentadoria e Legado
 
-## Criação de personagem
+## Visão geral
 
-Cada usuário deve criar um personagem jogador para iniciar sua trajetória no Telesoccer RP.
-
-A criação inicial deve conter dados básicos, como:
-
-- Nome do jogador.
-- Aparência base.
-- Posição principal.
-- Perfil inicial de atributos conforme regras futuras.
-
-## Posição principal inicial
-
-No início, o jogador escolhe uma posição principal. Essa decisão deve importar para o encaixe no clube, escalação e cenas de partida.
-
-O MVP deve preservar posições completas, sem reduzir a experiência para 1v1 ou para papéis genéricos.
-
-## Posições secundárias desbloqueáveis no futuro
-
-Posições secundárias não precisam entrar no primeiro MVP. Elas poderão ser desbloqueadas em fases futuras da carreira, de forma equilibrada e sem pay-to-win.
+A carreira é o coração do Telesoccer RP. Cada player cria um atleta que vive um ciclo completo: início, evolução, auge, declínio, aposentadoria e legado.
 
 ## Fases da carreira
 
-A carreira pode evoluir em fases:
+| Idade | Fase | Característica |
+|---|---|---|
+| 16–18 | Base/promessa | Evolui rápido, pouca experiência |
+| 19–23 | Desenvolvimento | Crescimento forte, instabilidade |
+| 24–29 | Auge | Melhor equilíbrio físico, técnico e mental |
+| 30–34 | Veterano competitivo | Perde físico, ganha leitura e liderança |
+| 35+ | Fase final | Declínio físico maior, valor narrativo alto |
 
-1. Promessa.
-2. Jogador em desenvolvimento.
-3. Titular consolidado.
-4. Veterano.
-5. Ídolo ou referência histórica.
+## Criação inicial
 
-Essas fases serão refinadas em versões futuras.
+No MVP, o personagem começa com:
 
-## Envelhecimento
+- 16 anos.
+- Uma posição principal.
+- Atributos iniciais conforme posição.
+- Estilo de jogo.
+- Pé dominante.
+- Altura/peso.
 
-O envelhecimento deve ser planejado com cuidado para criar narrativa sem punir injustamente o jogador.
+## Evolução
 
-Possibilidades futuras:
+O jogador evolui por:
 
-- Temporadas com idade avançando.
-- Mudanças graduais em atributos físicos.
-- Compensação com experiência, liderança ou leitura de jogo.
+- Treinos.
+- Partidas.
+- Bom desempenho.
+- Presença.
+- Missões.
+- Títulos.
+- RP relevante.
+- Reputação.
+
+## Tipos de progressão
+
+### Técnica
+
+- Finalização.
+- Passe.
+- Drible.
+- Cruzamento.
+- Marcação.
+- Desarme.
+- Controle de bola.
+
+### Física
+
+- Velocidade.
+- Aceleração.
+- Força.
+- Resistência.
+- Agilidade.
+- Impulsão.
+
+### Mental
+
+- Decisão.
+- Frieza.
+- Leitura de jogo.
+- Liderança.
+- Concentração.
+- Disciplina.
+
+### Social/RP
+
+- Reputação.
+- Carisma.
+- Profissionalismo.
+- Relação com clube.
+- Relação com torcida.
+- Moral.
+
+## Regras de idade
+
+### Jovem
+
+- Evolui mais rápido.
+- Erra mais sob pressão.
+- Menor frieza.
+- Menor liderança.
+
+### Auge
+
+- Melhor equilíbrio.
+- Melhor rendimento físico/técnico.
+- Maior valor esportivo.
+
+### Veterano
+
+- Perde velocidade e resistência aos poucos.
+- Ganha leitura, frieza e liderança.
+- Pode ser importante mesmo sem físico dominante.
 
 ## Aposentadoria
 
-A aposentadoria deve fazer parte do ciclo de legado. Um jogador aposentado pode deixar histórico, títulos, recordes e influência narrativa.
+A aposentadoria deve ocorrer quando o jogador:
 
-## Sistema de legado sem pay-to-win
+- Atingir idade avançada.
+- Sofrer queda física forte.
+- Escolher encerrar carreira.
+- Cumprir critérios de legado.
 
-Legado nunca deve vender vantagem competitiva. O objetivo é valorizar história, conquistas e memória do jogador.
+No MVP, aposentadoria pode ser documentada, mas implementada apenas em versão futura.
 
-Exemplos de legado permitido:
+## Sistema de legado
 
-- Hall da fama.
-- Títulos conquistados.
-- Estatísticas históricas.
-- Itens cosméticos comemorativos.
-- Registro de clubes defendidos.
+Ao aposentar, o player pode criar novo personagem com benefícios narrativos e pequenos bônus controlados.
+
+### Pode herdar
+
+- Pequeno bônus de potencial.
+- Reputação familiar.
+- Título visual.
+- Moldura especial.
+- Hall da Fama.
+- Facilidade narrativa para testes.
+- Pequeno bônus de evolução inicial.
+
+### Não pode herdar
+
+- Atributos altos diretos.
+- Vantagem competitiva grande.
+- Chance extra de vencer cenas.
+- Potencial abusivo.
+- Energia competitiva.
+
+## Regra de equilíbrio
+
+Legado deve dar identidade e história, não vitória automática.

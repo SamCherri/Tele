@@ -1,22 +1,60 @@
-# 13 — Registro de Decisões
+# 13 — Registro de Decisões de Design
 
-Este documento registra decisões já tomadas para evitar mudanças acidentais de direção.
+Este arquivo registra decisões já tomadas para evitar confusão durante o desenvolvimento.
 
-## Decisões já tomadas
+## Partida
 
-- MVP será 11vs11.
-- Reservas estarão presentes.
-- Goleiro será player real.
-- Partida em tempo real.
-- Jogador offline vira bot com -30%.
-- Jogador sem resposta em 15s vira bot com -15%.
-- Tempo de decisão será 15 segundos.
-- Partida terá relógio de 90 minutos e duração real de cerca de 30 minutos.
-- Cada clube terá 11 titulares + 12 reservas por partida.
-- Elenco total máximo será 40 jogadores.
+- O jogo começa com 11vs11.
+- Reservas existem desde o MVP.
+- Goleiro é player real desde o começo.
+- Partida é em tempo real.
+- O relógio do jogo mostra 45 + 45 minutos.
+- A duração real padrão será cerca de 30 minutos.
+- Cada cena tem 15 segundos para decisão.
+
+## Ausência e bot
+
+- Jogador offline vira bot.
+- Bot por ausência sofre -30% nos atributos efetivos.
+- Jogador online que não responde em 15 segundos vira bot temporário.
+- Bot por timeout sofre -15% naquela cena.
+- Se o jogador voltar, reassume nas próximas cenas.
+
+## Clube
+
+- Cada clube pode ter até 40 jogadores.
+- Por partida, o clube relaciona 23 jogadores.
+- São 11 titulares e 12 reservas.
 - Técnico controla escalação e substituições.
-- Técnico não entra em campo.
-- Presidente não entra em campo.
-- Posições completas estarão no MVP.
-- Jogador começa com uma posição principal.
-- Posições secundárias serão desbloqueadas no futuro.
+- Técnico é função separada e não joga pelo próprio clube.
+- Presidente é função separada e não joga pelo próprio clube.
+- Capitão é jogador em campo.
+
+## Posições
+
+- Posições completas entram no MVP.
+- O jogador começa com uma posição principal.
+- Posição secundária será desbloqueada futuramente.
+- Improvisos terão penalidade.
+
+## Monetização
+
+- O jogo será free-to-play.
+- Não pode ter pay-to-win.
+- Monetização apenas cosmética.
+
+## Plataforma
+
+- Primeiro será web mobile-first.
+- APK Android fica para depois.
+
+## Tecnologia
+
+- Stack recomendada: Next.js, TypeScript, Tailwind CSS, Supabase e PostgreSQL.
+- Futuro APK recomendado via Capacitor.
+
+## Escopo
+
+- O MVP deve provar o núcleo de jogo.
+- Não implementar tudo de uma vez.
+- Carreira avançada, legado, transferências e campeonatos complexos ficam para fases futuras.

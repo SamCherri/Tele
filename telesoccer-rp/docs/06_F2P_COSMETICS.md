@@ -1,42 +1,74 @@
 # 06 — Free-to-Play e Cosméticos
 
-## Regras anti-pay-to-win
+## Princípio central
 
-Telesoccer RP será free-to-play sem pay-to-win. Jogadores que pagam não podem comprar vantagem competitiva direta ou indireta.
+Telesoccer RP será free-to-play sem pay-to-win.
 
-A monetização deve respeitar a integridade das partidas, carreira, clubes e campeonatos.
+Nenhum jogador poderá comprar vantagem competitiva direta ou indireta.
 
-## O que pode ser vendido
-
-- Aparências de avatar.
-- Cortes de cabelo.
-- Barbas e acessórios visuais.
-- Chuteiras cosméticas sem bônus.
-- Comemorações visuais.
-- Molduras de perfil.
-- Temas de interface.
-- Itens visuais de torcida.
-- Skins de uniforme quando compatíveis com regras do clube.
-
-## O que nunca pode ser vendido
+## Proibido vender
 
 - Atributos.
-- Bônus de desempenho.
-- Chance maior em cenas.
-- Energia competitiva.
-- Redução de penalidade por offline.
-- Vaga garantida em clube.
-- Titularidade.
-- Resultado de partida.
-- Moedas que comprem poder competitivo.
-- Itens que alterem cálculo do servidor.
+- Pontos de evolução.
+- Energia de partida.
+- Chance de vitória.
+- Chance de acerto em cenas.
+- Potencial alto.
+- Evolução acelerada injusta.
+- Redução de cansaço competitiva.
+- Imunidade a lesão/cansaço.
+- Vaga privilegiada em clube forte.
+- Decisão automática melhor.
+- Buff de partida.
+- Pacotes aleatórios que alterem desempenho.
 
-## Exemplos de cosméticos
+## Permitido vender
 
-- Chuteira dourada visual.
-- Cabelo estilizado.
-- Entrada em campo personalizada.
-- Pose de perfil.
-- Card visual de jogador.
-- Efeito visual de comemoração.
-- Banner de conquistas.
+- Uniformes cosméticos.
+- Chuteiras visuais.
+- Cortes de cabelo.
+- Barbas.
+- Comemorações.
+- Emotes.
+- Molduras de perfil.
+- Cartões visuais de jogador.
+- Temas de estádio.
+- Efeitos de entrada em campo.
+- Poses de perfil.
+- Faixas de torcida cosméticas.
+- Passe de temporada cosmético.
+
+## Loja cosmética no MVP
+
+A loja inicial deve ser simples:
+
+- Lista de itens.
+- Preço em moeda premium ou moeda cosmética.
+- Visualização do item.
+- Compra.
+- Inventário.
+- Equipar/desequipar.
+
+## Inventário cosmético
+
+Cada usuário possui itens cosméticos próprios. Cosméticos não alteram cálculo de partida.
+
+## Passe de temporada futuro
+
+O passe de temporada deve conter apenas:
+
+- Skins.
+- Emotes.
+- Molduras.
+- Títulos visuais.
+- Temas.
+- Cartões.
+- Efeitos cosméticos.
+
+Não deve conter atributos, XP competitivo ou vantagem de progressão injusta.
+
+## Regra de comunicação
+
+O jogo deve deixar claro para a comunidade:
+
+**Tudo que afeta desempenho é conquistado jogando. Tudo que é pago é visual.**

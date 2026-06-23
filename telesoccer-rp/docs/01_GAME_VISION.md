@@ -1,40 +1,85 @@
 # 01 — Visão do Jogo
 
-## Visão do jogo
+## Nome provisório
 
-Telesoccer RP é um jogo online de futebol RP 11vs11 em que cada usuário vive a carreira de um jogador, participa de clubes, disputa partidas por cenas visuais e constrói reputação ao longo de temporadas.
+Telesoccer RP
 
-A proposta é unir futebol, interpretação de papel, gestão de elenco e decisões coletivas em tempo real, sem depender de controle livre de movimento.
+## Gênero
+
+- Futebol RP online
+- RPG esportivo
+- Jogo narrativo por cenas
+- Multiplayer mobile-first
+- Carreira de atleta
+- Clubes e campeonatos persistentes
+
+## Proposta central
+
+Telesoccer RP é um jogo online de futebol onde todos os atletas são players reais. Cada usuário cria um personagem jogador, entra em clubes, joga partidas, evolui, disputa campeonatos, constrói reputação, envelhece, aposenta e deixa legado.
+
+A partida não é controlada livremente como FIFA ou eFootball. O futebol acontece por cenas visuais e decisões simultâneas. O servidor calcula o resultado usando atributos, contexto, decisões, cansaço, moral, confiança, entrosamento, condição física e uma pequena margem de sorte controlada.
+
+## Fantasia do jogador
+
+O player deve sentir que está vivendo uma carreira real de futebol:
+
+1. Começa como promessa.
+2. Entra em um clube pequeno ou base.
+3. Disputa posição.
+4. Treina e melhora.
+5. Joga partidas importantes.
+6. Conquista moral com técnico, torcida e elenco.
+7. Recebe propostas.
+8. Ganha títulos.
+9. Entra no auge.
+10. Envelhece e perde físico.
+11. Pode virar lenda.
+12. Aposenta.
+13. Cria novo personagem com parte do legado narrativo.
+
+## Pilares do jogo
+
+### 1. Futebol por decisão, não por reflexo
+
+O jogo deve premiar leitura de contexto, boa escolha, atributos corretos e consistência. O player não precisa dominar controle manual em tempo real.
+
+### 2. 11vs11 com identidade realista
+
+Desde o MVP, o jogo deve ter 11 titulares, reservas, goleiro player real, técnico, presidente e escalação por posições completas.
+
+### 3. Servidor como autoridade
+
+O cliente nunca calcula resultado. Ele apenas exibe cena e envia decisão. O servidor valida, calcula e registra tudo.
+
+### 4. Carreira com começo, meio e fim
+
+O personagem não deve ser eterno. Ele nasce jovem, evolui, atinge auge, envelhece, perde físico e se aposenta.
+
+### 5. Free-to-play justo
+
+Nenhum pagamento pode vender atributos, energia competitiva, chance de vitória, potencial ou evolução injusta. Monetização apenas cosmética.
+
+## Tom visual
+
+- Pixel art / retrô futebol
+- Cenas estáticas ou semi-animadas
+- Cartões de jogador
+- Interface mobile vertical
+- Narração esportiva curta
+- Visual de estádio, torcida e emblemas
 
 ## Público-alvo
 
-- Jogadores que gostam de futebol e carreira de atleta.
-- Comunidades de RP que querem regras claras e evolução persistente.
-- Usuários mobile que preferem partidas curtas e decisões rápidas.
-- Jogadores que gostam de clubes, campeonatos, rivalidade e estatísticas.
+- Fãs de futebol
+- Comunidades de RP
+- Jogadores mobile
+- Jogadores que gostam de carreira e progressão
+- Jogadores que gostam de manager/RPG
+- Pessoas que querem competição sem pay-to-win
 
-## Fantasia principal
+## Plataforma inicial
 
-A fantasia principal é: “eu sou um jogador de futebol dentro de um mundo online, tenho posição, atributos, clube, técnico, torcida, histórico, conquistas e legado”.
-
-O jogador deve sentir que suas decisões em campo, presença online, desempenho e carreira importam.
-
-## Diferencial do jogo
-
-- Futebol 11vs11 com jogadores reais em campo.
-- Partidas por cenas, não por controle livre.
-- Decisões simultâneas com tempo curto.
-- Goleiro real desde o começo.
-- Clubes com presidente e técnico separados dos jogadores.
-- Free-to-play sem venda de vantagem competitiva.
-- Carreira e legado como foco de longo prazo.
-
-## Princípios de design
-
-1. **Servidor autoritativo:** o cliente apenas envia decisões; o servidor calcula resultados.
-2. **Sem pay-to-win:** dinheiro real nunca compra atributos, resultados ou vantagem competitiva.
-3. **Mobile-first:** a interface deve funcionar bem em celular antes de ser expandida.
-4. **Partidas objetivas:** 90 minutos simulados em cerca de 30 minutos reais.
-5. **Decisões significativas:** cada cena deve oferecer escolhas claras e relevantes.
-6. **RP com regras:** narrativa e comunidade, mas com sistemas que reduzem abuso.
-7. **Escalabilidade gradual:** começar simples, mas organizado para crescer.
+- Web responsiva mobile-first
+- Navegador mobile como prioridade
+- Desktop suportado, mas não prioridade
+- Futuro APK Android após validação do MVP

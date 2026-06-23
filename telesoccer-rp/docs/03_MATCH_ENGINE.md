@@ -1,78 +1,267 @@
 # 03 — Motor de Partida
 
-## Sistema de cenas
+## Princípio central
 
-A partida será dividida em cenas visuais. Cada cena representa uma situação de futebol, como passe, drible, chute, cruzamento, defesa, goleiro ou bola parada.
+A partida é 11vs11, mas as decisões acontecem por cenas envolvendo poucos jogadores diretamente relacionados ao lance.
 
-O objetivo do MVP é simular decisões importantes, e não controlar cada movimento do jogador em campo.
+A partida completa tem 22 jogadores titulares em campo, goleiros reais, reservas disponíveis e técnico comandando substituições. Porém, em cada cena, o sistema chama apenas os jogadores relevantes.
 
-## Decisões simultâneas
+## Tempo da partida
 
-Quando uma cena começa, os jogadores envolvidos recebem opções de decisão. As decisões são enviadas ao servidor e processadas em conjunto.
+- Relógio do jogo: 90 minutos.
+- Primeiro tempo: 45 minutos.
+- Segundo tempo: 45 minutos.
+- Duração real: cerca de 30 minutos.
+- Intervalo: 1 a 2 minutos reais.
+- Timer por cena: 15 segundos.
 
-Exemplos:
+O relógio do jogo avança por eventos relevantes, não segundo a segundo.
 
-- Um meia decide entre passe curto, passe em profundidade ou drible.
-- Um zagueiro decide entre bote, contenção ou cobertura.
-- Um goleiro decide entre sair do gol, ficar posicionado ou fechar ângulo.
+## Exemplo de avanço de relógio
 
-## Timer de 15 segundos
+- 00:00 — Início.
+- 03:20 — Saída de bola trabalhada.
+- 07:10 — Disputa no meio.
+- 12:45 — Ataque pela ponta.
+- 18:30 — Finalização.
+- 26:15 — Falta perigosa.
+- 33:00 — Defesa do goleiro.
+- 45:00 — Fim do primeiro tempo.
 
-Cada cena terá 15 segundos para decisão. Ao final do tempo, o servidor processa a cena com as respostas recebidas.
+## Status de presença
 
-Se um jogador não responder dentro do prazo, o servidor assume uma decisão de bot temporário.
+| Status | Decisão | Penalidade |
+|---|---|---:|
+| Online e respondeu | Player real | 0% |
+| Online e não respondeu em 15s | Bot temporário | -15% na cena |
+| Offline | Bot automático | -30% na cena |
+| Caiu da partida | Bot automático | -30% até voltar |
+| Voltou durante a partida | Player reassume | 0% nas próximas cenas |
 
-## Jogador offline como bot com -30%
+## Regra de bot offline
 
-Se o jogador estiver offline no momento da cena, o servidor deve usar um bot com penalidade de -30% nos cálculos relacionados ao personagem.
+Se um player estiver offline, o personagem continua em campo controlado por bot. O bot sofre penalidade de 30% nos atributos efetivos.
 
-Essa regra reduz abandono sem remover o jogador da partida automaticamente.
+Fórmula:
 
-## Jogador sem resposta como bot com -15%
+```txt
+atributo_efetivo = atributo_original * 0.70
+```
 
-Se o jogador estiver online, mas não responder em até 15 segundos, o servidor deve usar um bot temporário com penalidade de -15%.
+## Regra de não resposta
 
-Essa penalidade é menor que a do offline porque o jogador ainda está presente, mas falhou em tomar a decisão no tempo da cena.
+Se o player está online, mas não responde em até 15 segundos, o sistema escolhe uma decisão automática para aquela cena e aplica penalidade de 15%.
 
-## Servidor autoritativo
+Fórmula:
 
-O cliente nunca deve calcular o resultado da partida. O cliente apenas:
+```txt
+atributo_efetivo = atributo_original * 0.85
+```
 
-- Mostra a cena.
-- Mostra opções disponíveis.
-- Envia a decisão do jogador.
-- Recebe o resultado calculado pelo servidor.
+## Camadas do motor
 
-O servidor deve ser a fonte da verdade para:
+### 1. Simulação macro
 
-- Resultado de cenas.
-- Atributos usados.
-- Penalidades.
+Controla:
+
+- Tempo de jogo.
 - Placar.
+- Posse de bola.
+- Zona do campo.
+- Formação.
+- Cansaço.
+- Postura tática.
+- Pressão.
+- Escolha da próxima cena.
+- Jogadores envolvidos.
+
+### 2. Cena micro
+
+Controla:
+
+- Jogador com a bola.
+- Marcador direto.
+- Apoio ofensivo, se houver.
+- Cobertura defensiva, se houver.
+- Goleiro, se for finalização.
+- Decisões disponíveis.
+- Timer.
+- Cálculo do resultado.
+- Narração.
 - Estatísticas.
-- Logs de auditoria.
 
-## Exemplo de cálculo conceitual
+## Tipos de cena do MVP
 
-Exemplo simples de uma cena de drible:
+### Construção
 
-1. Atacante escolhe driblar.
-2. Defensor escolhe dar bote.
-3. Servidor coleta atributos relevantes, como drible, técnica, marcação e desarme.
-4. Servidor aplica modificadores de condição, contexto e presença online.
-5. Se algum jogador estiver offline, aplica -30%.
-6. Se algum jogador online não respondeu, aplica -15%.
-7. Servidor calcula uma chance ponderada e define o resultado.
-8. Resultado gera nova cena: avanço, falta, perda de bola ou manutenção da posse.
+- Zagueiro saindo jogando.
+- Volante recebendo sob pressão.
+- Meia procurando passe.
 
-Este exemplo é conceitual. A fórmula final será definida durante a implementação do motor.
+### Duelo de ponta
 
-## Tipos de cena
+- Ponta contra lateral.
+- Opções: driblar, cruzar, cortar para dentro, tocar, proteger.
 
-- **Passe:** troca de bola, passe curto, lançamento ou passe em profundidade.
-- **Drible:** confronto direto entre atacante e defensor.
-- **Chute:** finalização de curta, média ou longa distância.
-- **Cruzamento:** bola lançada na área para disputa ofensiva e defensiva.
-- **Defesa:** ações de marcação, interceptação, cobertura e desarme.
-- **Goleiro:** posicionamento, defesa, saída do gol e reação a chutes.
-- **Bola parada:** falta, escanteio, pênalti e lateral em zonas importantes.
+### Disputa no meio
+
+- Meia contra volante.
+- Opções: tocar, lançar, driblar, proteger, chutar de longe.
+
+### Finalização
+
+- Atacante contra zagueiro/goleiro.
+- Opções: chutar forte, chutar colocado, driblar goleiro, tocar, cabecear.
+
+### Defesa do goleiro
+
+- Goleiro decide contra chute, cruzamento, 1v1, pênalti ou rebote.
+
+### Bola parada simples
+
+- Escanteio.
+- Falta lateral.
+- Falta frontal.
+- Pênalti.
+
+## Decisões do atacante
+
+- Driblar.
+- Chutar.
+- Cruzar.
+- Tocar.
+- Proteger a bola.
+- Lançar.
+- Cortar para dentro.
+- Cabecear.
+
+## Decisões do defensor
+
+- Dar bote.
+- Cercar.
+- Fechar chute.
+- Fechar passe.
+- Fechar cruzamento.
+- Dar carrinho.
+- Recuar linha.
+- Pressionar.
+
+## Decisões do goleiro
+
+### Contra chute
+
+- Saltar no canto esquerdo.
+- Saltar no canto direito.
+- Ficar centralizado.
+- Espalmar.
+- Tentar encaixar.
+
+### Contra cruzamento
+
+- Sair no cruzamento.
+- Ficar na linha.
+- Socar a bola.
+- Tentar encaixar.
+- Fechar primeiro pau.
+
+### Reposição
+
+- Passe curto.
+- Lançamento longo.
+- Bola no lateral.
+- Bola no volante.
+- Chutão seguro.
+
+## Matriz base de vantagem
+
+| Ação ofensiva | Ação defensiva | Vantagem inicial |
+|---|---|---|
+| Chutar | Fechar chute | Defensor |
+| Chutar | Fechar passe | Atacante |
+| Driblar | Fechar chute | Atacante |
+| Driblar | Cercar | Defensor leve |
+| Driblar | Dar bote | Disputa direta |
+| Cruzar | Fechar cruzamento | Defensor |
+| Cruzar | Fechar chute | Atacante |
+| Tocar | Fechar passe | Defensor |
+| Tocar | Dar bote | Atacante leve |
+| Proteger | Dar bote | Atacante leve |
+| Proteger | Cercar | Lance desacelera |
+
+## Fórmula conceitual
+
+```txt
+pontuacao =
+  atributo_principal
++ atributo_secundario * 0.50
++ atributo_mental * 0.30
++ bonus_decisao
++ bonus_contexto
++ bonus_entrosamento
++ bonus_moral
+- penalidade_cansaco
+- penalidade_improviso
+- penalidade_bot
++ sorte_controlada
+```
+
+## Sorte controlada
+
+A sorte existe para gerar imprevisibilidade, mas não deve mandar no jogo.
+
+Recomendação inicial:
+
+```txt
+sorte_controlada = número entre -5 e +5
+```
+
+A decisão correta e os atributos devem pesar mais que a sorte.
+
+## Resultado da cena
+
+Cada cena gera:
+
+- Vencedor do duelo.
+- Narração textual.
+- Atualização da posse.
+- Atualização da zona do campo.
+- Alteração de cansaço.
+- Estatísticas individuais.
+- Possível falta/cartão.
+- Possível finalização/gol.
+- Registro no histórico.
+
+## Estatísticas mínimas
+
+Jogador de linha:
+
+- Gols.
+- Assistências.
+- Passes certos.
+- Passes errados.
+- Dribles tentados.
+- Dribles certos.
+- Desarmes.
+- Faltas cometidas.
+- Finalizações.
+- Finalizações no alvo.
+- Cenas vencidas.
+- Cenas perdidas.
+
+Goleiro:
+
+- Defesas.
+- Defesas difíceis.
+- Gols sofridos.
+- Saídas do gol certas.
+- Saídas do gol erradas.
+- Reposições certas.
+- Pênaltis defendidos.
+
+## Segurança
+
+- Cliente só envia decisão.
+- Cliente nunca envia resultado.
+- Servidor valida cena, jogador, tempo e decisão.
+- Servidor calcula e grava resultado.
+- Logs de decisão devem ser preservados.

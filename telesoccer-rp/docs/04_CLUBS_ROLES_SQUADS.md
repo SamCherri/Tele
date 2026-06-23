@@ -1,73 +1,165 @@
-# 04 — Clubes, Funções e Elencos
+# 04 — Clubes, Cargos e Elencos
 
-## Clubes
+## Clube
 
-Clubes são organizações de jogadores dentro do Telesoccer RP. Eles concentram elenco, cargos, partidas, histórico, estatísticas e identidade visual.
+O clube é a unidade social e competitiva principal do jogo. Ele representa o time onde os jogadores constroem carreira, disputam vaga, jogam campeonatos, criam rivalidades e conquistam títulos.
 
-Cada clube pode ter até 40 jogadores no elenco total.
+## Estrutura de cargos
+
+| Cargo | Entra em campo? | Responsabilidade |
+|---|---:|---|
+| Presidente | Não | Administração do clube |
+| Técnico | Não | Escalação, formação e substituições |
+| Capitão | Sim | Liderança em campo e RP do elenco |
+| Jogador | Sim | Atua nas partidas e evolui carreira |
 
 ## Presidente
 
-O presidente representa a gestão institucional do clube. Ele não entra em campo.
+O presidente é uma função separada e não joga pelo próprio clube.
 
-Funções do presidente:
+### Permissões do presidente
 
-- Gerenciar identidade e organização do clube.
-- Nomear ou remover técnico conforme regras futuras.
-- Cuidar da estrutura administrativa do clube.
-- Participar de decisões estratégicas fora de campo.
+- Criar clube.
+- Editar nome, escudo e cores.
+- Convidar jogadores.
+- Remover membros.
+- Escolher/trocar técnico.
+- Gerenciar cargos.
+- Aprovar entrada de jogadores.
+- Acompanhar histórico do clube.
+- Ver denúncias internas.
+
+### Restrições do presidente
+
+O presidente não pode:
+
+- Entrar em campo pelo clube.
+- Escalar titulares.
+- Fazer substituições.
+- Escolher decisões de cena.
+- Alterar atributos.
+- Interferir no cálculo da partida.
 
 ## Técnico
 
-O técnico é responsável pela gestão esportiva da equipe. Ele não entra em campo.
+O técnico é uma função separada e não joga pelo próprio clube.
 
-Funções do técnico:
+### Permissões do técnico
 
-- Definir os 23 relacionados para cada partida.
-- Escalar 11 titulares.
-- Escolher 12 reservas.
-- Definir formação e orientações iniciais.
-- Fazer substituições conforme regras do jogo.
-- Organizar funções e prioridades táticas.
+- Escolher titulares.
+- Escolher 12 reservas relacionados.
+- Definir formação.
+- Definir capitão.
+- Realizar substituições.
+- Ajustar postura tática.
+- Substituir jogadores offline.
+- Acompanhar presença dos jogadores.
+- Ver cansaço e estatísticas durante a partida.
 
 ## Capitão
 
-O capitão é um jogador do elenco que atua em campo e pode representar liderança dentro da partida.
+O capitão é um jogador do elenco. Ele entra em campo e representa liderança.
 
-Possíveis funções futuras:
+### Funções do capitão
 
-- Comunicação com jogadores.
-- Organização em cenas importantes.
-- Participação em decisões de vestiário.
+- Liderança em RP.
+- Comunicação com elenco.
+- Influência moral leve.
+- Representação do time em campo.
 
-## Jogadores
+No MVP, a influência do capitão deve ser pequena para não quebrar balanceamento.
 
-Jogadores são personagens controlados por usuários. Cada jogador começa com uma posição principal inicial.
+## Elenco total
 
-No MVP, o foco será permitir participação em partidas 11vs11 com posições completas.
+Cada clube pode ter até 40 jogadores.
 
-## Elenco máximo de 40
-
-Cada clube pode ter até 40 jogadores no elenco. Esse limite evita elencos infinitos e facilita gestão competitiva.
+| Grupo | Quantidade |
+|---|---:|
+| Titulares por partida | 11 |
+| Reservas relacionados por partida | 12 |
+| Total relacionado por partida | 23 |
+| Suplentes fora da relação | até 17 |
+| Elenco total máximo | 40 |
 
 ## Relacionados por partida
 
-Para cada partida, o técnico relaciona 23 jogadores:
+Antes de cada partida, o técnico escolhe:
 
 - 11 titulares.
 - 12 reservas.
 
-## 11 titulares
+Os demais jogadores ficam como suplentes/não relacionados.
 
-Os titulares começam a partida em campo e participam diretamente das cenas desde o início.
+## Substituições
 
-## 12 reservas
+Regra inicial recomendada:
 
-Os reservas ficam disponíveis para substituições durante a partida conforme regras futuras do MVP.
+- 5 substituições por partida.
+- Máximo de 3 paradas de substituição.
+- Substituições no intervalo não contam como parada.
+- Técnico pode substituir jogador offline.
 
-## Resumo das funções
+## Banco de reservas recomendado
 
-- Presidente: administra o clube e não entra em campo.
-- Técnico: escala, relaciona e substitui, mas não entra em campo.
-- Capitão: jogador em campo com liderança.
-- Jogador: personagem que participa da partida.
+| Função | Quantidade sugerida |
+|---|---:|
+| Goleiro reserva | 1 |
+| Defensores | 3 |
+| Meio-campistas | 4 |
+| Atacantes | 3 |
+| Livre/coringa | 1 |
+
+## Formação inicial do MVP
+
+A primeira formação suportada deve ser 4-3-3.
+
+### 4-3-3 padrão
+
+- GOL
+- LD
+- ZAG
+- ZAG
+- LE
+- VOL
+- MC
+- MEI
+- PD
+- ATA
+- PE
+
+## Formações futuras
+
+- 4-4-2.
+- 4-2-3-1.
+- 3-5-2.
+- 5-3-2.
+
+## Posições oficiais
+
+| Sigla | Posição |
+|---|---|
+| GOL | Goleiro |
+| LD | Lateral Direito |
+| LE | Lateral Esquerdo |
+| ZAG | Zagueiro |
+| VOL | Volante |
+| MC | Meia Central |
+| MEI | Meia Ofensivo |
+| PD | Ponta Direita |
+| PE | Ponta Esquerda |
+| SA | Segundo Atacante |
+| ATA | Atacante/Centroavante |
+
+## Improviso de posição
+
+| Situação | Penalidade sugerida |
+|---|---:|
+| Posição principal | 0% |
+| Posição em adaptação futura | -10% |
+| Posição secundária desbloqueada futura | -5% |
+| Mesma linha/setor | -10% |
+| Posição muito diferente | -20% |
+| Jogador de linha no gol | -40% |
+| Goleiro na linha | -35% |
+
+No MVP, o personagem começa apenas com posição principal.

@@ -1,74 +1,211 @@
-# 08 — Telas do App
+# 08 — Telas Principais do App
 
-## Telas principais do app
+## Princípios de interface
 
-- Página inicial.
-- Login e cadastro.
-- Dashboard do jogador.
-- Perfil público.
-- Clube.
-- Partida.
-- Ranking e estatísticas.
-- Loja cosmética.
-- Central de denúncias e suporte.
+- Mobile-first.
+- Vertical como padrão.
+- Botões grandes.
+- Texto claro.
+- Poucas ações por tela.
+- Priorizar velocidade durante partida.
+- A cena deve ser entendida em poucos segundos.
 
-## Fluxo inicial do usuário
+## Fluxo inicial
 
-1. Usuário acessa o site pelo celular.
-2. Cria conta ou faz login.
-3. Cria personagem jogador.
-4. Escolhe posição principal.
-5. Entra em um clube ou procura clube.
-6. Aguarda escalação do técnico.
-7. Participa de partidas por cenas.
+1. Tela inicial.
+2. Cadastro/login.
+3. Criar perfil.
+4. Criar personagem.
+5. Entrar/criar clube.
+6. Lobby.
+7. Partida.
+8. Resultado.
+9. Perfil/progressão.
 
-## Telas de jogador
+## Telas do MVP
 
-- Criação de personagem.
-- Perfil do jogador.
-- Atributos e posição.
-- Histórico de partidas.
+### 1. Landing / início
+
+Elementos:
+
+- Logo.
+- Botão entrar.
+- Botão cadastrar.
+- Chamada curta do jogo.
+
+### 2. Cadastro
+
+- E-mail.
+- Senha.
+- Confirmar senha.
+- Aceite de termos.
+
+### 3. Login
+
+- E-mail.
+- Senha.
+- Recuperar senha.
+
+### 4. Criar perfil público
+
+- Nome público.
+- Avatar inicial.
+
+### 5. Criar personagem
+
+- Nome do atleta.
+- Apelido.
+- Idade inicial fixa: 16.
+- Posição principal.
+- Pé dominante.
+- Altura.
+- Peso.
+- Estilo de jogo.
+- Aparência básica.
+
+### 6. Perfil do jogador
+
+- Nome.
+- Clube atual.
+- Posição.
+- Idade.
+- Atributos.
 - Estatísticas.
-- Cosméticos equipados.
-- Legado e conquistas futuras.
+- Moral.
+- Confiança.
+- Histórico.
 
-## Telas de clube
+### 7. Clube
 
-- Página do clube.
-- Elenco completo.
-- Cargos do clube.
-- Histórico de partidas.
-- Estatísticas coletivas.
-- Identidade visual.
-- Lista de jogadores disponíveis.
+- Nome do clube.
+- Escudo.
+- Presidente.
+- Técnico.
+- Capitão.
+- Elenco.
+- Próxima partida.
+- Histórico.
 
-## Telas de partida
+### 8. Painel do técnico
 
-- Lobby da partida.
-- Escalação.
-- Campo tático simplificado.
-- Cena atual.
-- Decisões disponíveis.
-- Timer de 15 segundos.
-- Resultado da cena.
-- Placar e eventos.
-- Estatísticas pós-jogo.
-
-## Telas de técnico
-
-- Gestão de elenco.
-- Relacionar 23 jogadores.
-- Definir 11 titulares.
-- Definir 12 reservas.
-- Ajustar formação.
+- Elenco total.
+- Presença online.
+- Escolher titulares.
+- Escolher reservas.
+- Formação.
+- Capitão.
 - Substituições.
-- Orientações táticas futuras.
+- Postura tática.
 
-## Telas administrativas
+### 9. Lobby da partida
 
-- Painel de denúncias.
-- Logs de partida.
-- Logs administrativos.
-- Histórico de punições.
-- Ferramentas anti-cheat.
-- Gestão de usuários problemáticos.
+- Clubes.
+- Escalações.
+- Jogadores online/offline.
+- Timer para iniciar.
+- Avisos de ausência.
+
+### 10. Cena da partida
+
+Elementos essenciais:
+
+- Relógio do jogo.
+- Placar.
+- Zona do campo.
+- Cena visual.
+- Texto do lance.
+- Jogadores envolvidos.
+- Opções de decisão.
+- Timer de 15 segundos.
+
+### 11. Resultado da cena
+
+- Narração.
+- Vencedor do duelo.
+- Nova posse.
+- Nova zona.
+- Estatística gerada.
+- Imagem/cena do resultado.
+
+### 12. Intervalo
+
+- Placar.
+- Estatísticas do primeiro tempo.
+- Cansaço.
+- Substituições.
+- Ajuste de postura.
+
+### 13. Resultado da partida
+
+- Placar final.
+- Gols.
+- Assistências.
+- Melhor em campo.
+- Estatísticas individuais.
+- XP ganho.
+- Impacto na moral/reputação.
+
+### 14. Ranking
+
+- Ranking de clubes.
+- Ranking de jogadores.
+- Artilharia.
+- Assistências.
+- Defesas.
+
+### 15. Inventário
+
+- Cosméticos possuídos.
+- Equipar item.
+- Filtrar por tipo.
+
+### 16. Loja cosmética
+
+- Itens visuais.
+- Detalhe do item.
+- Comprar.
+- Sem atributo ou vantagem.
+
+### 17. Missões
+
+- Diárias.
+- Semanais.
+- Temporada futura.
+- Recompensas cosméticas ou moedas não competitivas.
+
+### 18. Notificações
+
+- Convite de clube.
+- Escalação.
+- Próxima partida.
+- Resultado.
+- Denúncia/moderação.
+
+### 19. Denúncia
+
+- Usuário denunciado.
+- Motivo.
+- Descrição.
+- Partida relacionada.
+
+### 20. Admin
+
+- Usuários.
+- Clubes.
+- Personagens.
+- Partidas.
+- Denúncias.
+- Ações de moderação.
+- Logs.
+
+## Tela mais importante do MVP
+
+A tela da cena da partida é a tela crítica. Ela precisa ser rápida, clara e confiável.
+
+O jogador deve entender em até 3 segundos:
+
+- Quem está no lance.
+- Qual é a situação.
+- Quais decisões pode tomar.
+- Quanto tempo resta.
+- O que aconteceu depois.

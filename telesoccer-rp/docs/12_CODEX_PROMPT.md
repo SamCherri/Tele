@@ -1,35 +1,143 @@
-# 12 — Prompt Futuro para o Codex
+# 12 — Prompt para Codex
 
-Use este prompt em uma próxima etapa para iniciar a implementação web do MVP.
+Use este prompt quando for iniciar o projeto no Codex.
 
-```txt
+---
+
 Você é o Codex trabalhando no projeto Telesoccer RP.
 
-Objetivo desta etapa: iniciar a aplicação web responsiva do MVP, sem implementar o jogo completo.
+Crie a base inicial de uma aplicação web mobile-first para um jogo online de futebol RP narrativo por cenas.
 
-Antes de alterar arquivos:
-1. Leia o README.md principal.
-2. Leia docs/01_GAME_VISION.md.
-3. Leia docs/02_MVP_SCOPE.md.
-4. Leia docs/03_MATCH_ENGINE.md.
-5. Leia docs/11_TECH_STACK_GITHUB.md.
+## Conceito do jogo
 
-Crie ou configure uma aplicação Next.js com TypeScript e Tailwind CSS em apps/web.
+Telesoccer RP é um jogo de futebol online 11vs11 em que todos os atletas são players reais. A partida não tem controle livre. Ela acontece por cenas visuais, decisões simultâneas e cálculo por atributos no servidor.
 
-Regras importantes:
-- Mobile-first.
-- Não criar APK ainda.
-- Não implementar banco ainda, apenas preparar estrutura se necessário.
-- Não criar mecânicas pay-to-win.
-- Não transformar o jogo em 1v1.
-- Não transformar em futebol de controle livre.
-- Cliente não deve calcular resultado de partida.
-- Preservar separação entre app, game engine, shared, ui e database.
+## Stack desejada
 
-Entregue:
-- Setup inicial funcional do app web.
-- Página inicial simples explicando Telesoccer RP.
-- Estrutura de componentes básica.
-- Instruções de como rodar localmente.
-- Teste ou checagem básica do projeto.
+- Next.js.
+- TypeScript.
+- Tailwind CSS.
+- Supabase.
+- PostgreSQL.
+- Supabase Auth.
+- Supabase Realtime.
+
+## Regras do MVP
+
+- O jogo começa como aplicação web mobile-first.
+- Não criar APK agora.
+- Partida 11vs11 desde o MVP.
+- Cada clube tem até 40 jogadores.
+- Para cada partida, o técnico relaciona 23 jogadores: 11 titulares e 12 reservas.
+- Goleiro é player real desde o começo.
+- Presidente é função separada e não joga pelo clube.
+- Técnico é função separada e não joga pelo clube.
+- Técnico controla escalação e substituições.
+- Cada partida representa 90 minutos, mas dura cerca de 30 minutos reais.
+- Cada cena tem timer de 15 segundos.
+- Jogador offline vira bot com -30% nos atributos efetivos.
+- Jogador online sem resposta vira bot temporário com -15% naquela cena.
+- O cliente nunca calcula resultado.
+- O cliente apenas envia decisões.
+- O servidor valida e calcula resultados.
+- Não implementar pay-to-win.
+
+## Funcionalidades iniciais
+
+Crie:
+
+1. Estrutura de pastas.
+2. App web mobile-first.
+3. Cadastro/login com Supabase Auth.
+4. Perfil do usuário.
+5. Criação de personagem jogador.
+6. Posições completas: GOL, LD, LE, ZAG, VOL, MC, MEI, PD, PE, SA, ATA.
+7. Sistema básico de clubes.
+8. Cargos: presidente, técnico, capitão, jogador.
+9. Tela de elenco.
+10. Tela de escalação 4-3-3.
+11. Criação de partida.
+12. Lobby de partida.
+13. Cena de partida.
+14. Timer de 15 segundos.
+15. Envio de decisão.
+16. Função de cálculo de resultado no servidor.
+17. Histórico de cenas.
+18. Placar.
+19. Estatísticas básicas.
+20. Tela de resultado final.
+
+## Arquitetura obrigatória
+
+Separe:
+
+- Interface.
+- Tipos compartilhados.
+- Motor de partida.
+- Acesso ao banco.
+- Rotas/ações do servidor.
+
+O motor de partida deve ficar em um pacote separado, por exemplo:
+
+```txt
+packages/game-engine
 ```
+
+## Entidades de banco iniciais
+
+Crie modelos/tabelas conceituais para:
+
+- users/profiles.
+- players.
+- player_attributes.
+- clubs.
+- club_members.
+- matches.
+- match_lineups.
+- match_scenes.
+- match_decisions.
+- match_scene_results.
+- player_match_stats.
+- reports.
+- moderation_actions.
+
+## Motor de cena inicial
+
+Implementar uma primeira versão simples com:
+
+- Cena de ataque vs defesa.
+- Cena de finalização vs goleiro.
+- Matriz de decisão.
+- Atributos principais.
+- Bônus de decisão.
+- Penalidade de cansaço.
+- Penalidade de posição improvisada.
+- Penalidade de bot offline.
+- Penalidade de timeout.
+- Sorte controlada entre -5 e +5.
+
+## Não implementar agora
+
+Não implemente ainda:
+
+- APK.
+- Mercado de transferências completo.
+- Contratos avançados.
+- Salários complexos.
+- Legado completo.
+- Aposentadoria completa.
+- Campeonatos internacionais.
+- Passe de temporada avançado.
+- Skins complexas.
+- Animações avançadas.
+
+## Resultado esperado
+
+Entregar uma base funcional e documentada, com README explicando:
+
+- Como instalar.
+- Como configurar variáveis de ambiente.
+- Como rodar localmente.
+- Como funciona o motor inicial.
+- Como criar uma partida de teste.
+- Como rodar testes.

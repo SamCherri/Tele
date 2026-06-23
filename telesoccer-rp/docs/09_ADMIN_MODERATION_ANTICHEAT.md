@@ -1,62 +1,121 @@
-# 09 — Administração, Moderação e Anti-Cheat
+# 09 — Administração, Moderação e Anti-Trapaça
 
-## Moderação
+## Painel administrativo
 
-Por ser um jogo online competitivo e social, Telesoccer RP precisa de moderação desde cedo. A moderação deve proteger a comunidade sem interferir injustamente no resultado esportivo.
+O painel administrativo permite operar o jogo, moderar comunidade, corrigir abusos e acompanhar partidas.
 
-## Denúncias
+## Funções admin do MVP
 
-Usuários devem poder denunciar:
+- Listar usuários.
+- Ver perfil do usuário.
+- Listar personagens.
+- Listar clubes.
+- Ver partidas.
+- Ver cenas de partida.
+- Ver decisões registradas.
+- Ver denúncias.
+- Suspender usuário.
+- Banir usuário.
+- Editar nomes ofensivos.
+- Gerenciar cosméticos.
+- Ver logs básicos.
 
-- Ofensas e assédio.
-- Manipulação de resultado.
+## Sistema de denúncia
+
+Jogadores podem denunciar:
+
+- Ofensa.
+- Nome impróprio.
 - Abandono intencional.
-- Uso de contas falsas.
-- Exploração de bugs.
-- Condutas contra as regras da comunidade.
+- Trapaça.
+- Combinação de resultado.
+- Assédio.
+- Spam.
+- Abuso de cargo.
 
-## Banimento
+## Fluxo da denúncia
 
-Banimentos devem ser registrados com motivo, duração, responsável pela ação e evidências relacionadas.
+1. Usuário cria denúncia.
+2. Sistema registra contexto.
+3. Moderação analisa.
+4. Admin aplica ação ou arquiva.
+5. Ação fica registrada.
 
-Tipos possíveis:
+## Ações de moderação
 
-- Advertência.
+- Aviso.
 - Suspensão temporária.
-- Banimento permanente.
-- Restrição de chat.
-- Restrição de participação competitiva.
+- Banimento.
+- Remoção de nome ofensivo.
+- Remoção de clube ofensivo.
+- Bloqueio de chat futuro.
+- Restrição de criação de clube.
 
-## Logs
+## Anti-trapaça
 
-O sistema deve registrar logs de:
+### Princípio
 
-- Decisões de partida.
-- Cenas processadas.
-- Penalidades por offline ou sem resposta.
-- Ações administrativas.
-- Alterações de clube e elenco.
-- Denúncias e revisões.
+O servidor é a fonte da verdade.
 
-## Anti-cheat
+O cliente nunca pode:
 
-O anti-cheat deve começar pela arquitetura correta:
+- Calcular resultado.
+- Informar vencedor da cena.
+- Alterar atributo.
+- Alterar cansaço.
+- Alterar XP.
+- Criar estatística final.
+- Definir gol.
 
-- Cliente não calcula resultado.
-- Cliente não define atributos finais.
-- Cliente não altera placar.
-- Servidor valida decisões, tempo e contexto.
-- Logs permitem auditoria posterior.
+O cliente só pode:
 
-## Regras contra manipulação de resultado
+- Autenticar.
+- Mostrar estado permitido.
+- Enviar decisão válida dentro do tempo.
 
-O jogo deve monitorar padrões suspeitos, como:
+## Logs obrigatórios por cena
 
-- Jogadores ficando offline repetidamente em momentos decisivos.
-- Decisões anormais combinadas entre clubes.
-- Contas recém-criadas usadas para prejudicar partidas.
-- Substituições ou escalações abusivas se regras futuras proibirem.
+- match_id.
+- scene_id.
+- player_id.
+- status online/offline.
+- decisão enviada.
+- tempo de resposta.
+- decisão manual ou bot.
+- penalidade aplicada.
+- atributos usados no cálculo.
+- resultado.
+- timestamp.
 
-## Servidor como fonte da verdade
+## Riscos de trapaça
 
-O servidor deve ser a fonte da verdade para qualquer informação competitiva. O frontend deve ser tratado como interface visual, não como autoridade de regra.
+- Bot externo escolhendo decisões.
+- Multi-conta.
+- Combinação entre clubes.
+- Farming de XP.
+- Abandono intencional.
+- Manipulação de presença.
+- Exploração de bug de substituição.
+- Exploração de timing.
+
+## Proteções do MVP
+
+- Autenticação obrigatória.
+- Rate limit em ações críticas.
+- Validação de participação na cena.
+- Timer calculado no servidor.
+- Resultado calculado no servidor.
+- Logs completos de partida.
+- Penalidade para offline.
+- Histórico de ausências.
+- Denúncia manual.
+- Painel admin.
+
+## Sinais suspeitos futuros
+
+- Taxa de decisão perfeita anormal.
+- Respostas sempre no mesmo milissegundo.
+- Contas conectadas sempre do mesmo padrão.
+- Jogadores que farmam contra os mesmos clubes.
+- Clubes com resultados combinados.
+- Abandono repetido em momentos específicos.

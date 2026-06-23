@@ -1,44 +1,159 @@
-# 11 — Stack Técnica e GitHub
+# 11 — Stack Técnica e Estrutura GitHub
+
+## Princípios técnicos
+
+- Web mobile-first primeiro.
+- APK somente depois do MVP estável.
+- Servidor autoritativo.
+- Separar motor de jogo da interface.
+- Código TypeScript.
+- Banco relacional.
+- Logs de partida desde o começo.
 
 ## Stack recomendada
 
-- **Next.js:** aplicação web responsiva.
-- **TypeScript:** segurança de tipos e manutenção.
-- **Tailwind CSS:** construção rápida de interface mobile-first.
-- **Supabase:** backend gerenciado inicial.
-- **PostgreSQL:** banco relacional principal.
-- **Supabase Auth:** autenticação.
-- **Supabase Realtime:** atualizações em tempo real para partidas e lobby.
-- **Supabase Storage:** arquivos, imagens e cosméticos.
-- **Drizzle ou Prisma:** modelagem e migrations do banco.
-- **Capacitor:** futuro APK Android quando a web estiver estável.
+### Frontend / Fullstack web
 
-## Estrutura de branches sugerida
+- Next.js.
+- TypeScript.
+- Tailwind CSS.
 
-- `main`: versão estável e revisada.
-- `develop`: integração das próximas funcionalidades.
-- `feature/nome-da-funcionalidade`: trabalho em funcionalidades específicas.
-- `fix/nome-do-ajuste`: correções pontuais.
-- `docs/nome-do-documento`: mudanças de documentação.
+### Backend inicial
 
-## Organização de commits
+- Supabase.
+- PostgreSQL.
+- Supabase Auth.
+- Supabase Realtime.
+- Supabase Storage.
+- Edge Functions ou rotas de servidor para lógica sensível.
 
-Sugestão de padrão simples:
+### Futuro APK
 
-- `docs: cria visão inicial do jogo`
-- `feat: adiciona criação de personagem`
-- `fix: corrige validação de escalação`
-- `test: adiciona testes do motor de cenas`
-- `chore: configura ferramentas do projeto`
+- Capacitor.
 
-Commits devem ser pequenos, claros e fáceis de revisar.
+Motivo: o projeto começa web mobile-first. Capacitor permite empacotar uma aplicação web como app Android/iOS depois, reduzindo retrabalho.
 
-## Separação entre pacotes
+## Regra crítica de arquitetura
 
-- `apps/web`: frontend web e rotas da aplicação.
-- `packages/game-engine`: regras do motor de cenas e cálculos do servidor.
-- `packages/shared`: tipos, constantes e contratos compartilhados.
-- `packages/ui`: componentes visuais reutilizáveis.
-- `packages/database`: schema, migrations e utilitários de banco.
+O motor de partida não deve ficar misturado com componentes visuais.
 
-Essa separação evita misturar interface visual com regra crítica de partida.
+Separação recomendada:
+
+- UI mostra cenas.
+- Cliente envia decisão.
+- Servidor valida.
+- Motor calcula.
+- Banco grava.
+- Cliente recebe resultado.
+
+## Estrutura sugerida do repositório
+
+```txt
+telesoccer-rp/
+  apps/
+    web/
+  packages/
+    game-engine/
+    database/
+    shared/
+    ui/
+  docs/
+  supabase/
+    migrations/
+    functions/
+  public/
+    assets/
+      scenes/
+      avatars/
+      cosmetics/
+  tests/
+  README.md
+  GAME_DESIGN.md
+  MVP_SCOPE.md
+  MATCH_ENGINE.md
+  DATABASE_SCHEMA.md
+  ROADMAP.md
+  CODEX_PROMPT.md
+```
+
+## Packages
+
+### apps/web
+
+Aplicação principal web mobile-first.
+
+Contém:
+
+- Rotas.
+- Telas.
+- Componentes de página.
+- Integração com autenticação.
+- Consumo de APIs.
+
+### packages/game-engine
+
+Motor de cálculo.
+
+Contém:
+
+- Tipos de cena.
+- Decisões.
+- Fórmulas.
+- Validação de resultado.
+- Testes unitários do cálculo.
+
+### packages/database
+
+Contém:
+
+- Tipos de banco.
+- Queries compartilhadas.
+- Schemas.
+- Migrations, se aplicável.
+
+### packages/shared
+
+Contém:
+
+- Tipos TypeScript compartilhados.
+- Constantes.
+- Enums.
+- Utilitários.
+
+### packages/ui
+
+Contém:
+
+- Botões.
+- Cards.
+- Modal.
+- Layout mobile.
+- Componentes visuais reaproveitáveis.
+
+## Branches
+
+- main: versão estável.
+- develop: desenvolvimento integrado.
+- feature/*: novas funcionalidades.
+- fix/*: correções.
+
+## Commits
+
+Padrão recomendado:
+
+- feat: nova funcionalidade.
+- fix: correção.
+- docs: documentação.
+- refactor: refatoração.
+- test: testes.
+- chore: tarefas internas.
+
+## Testes prioritários
+
+- Cálculo de cena.
+- Penalidade de bot offline.
+- Penalidade de timeout.
+- Validação de decisão.
+- Substituições.
+- Permissões de técnico/presidente.
+- Segurança de resultado no servidor.
