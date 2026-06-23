@@ -66,7 +66,7 @@ Não fazem parte desta etapa:
 ## Organização do projeto
 
 ```txt
-telesoccer-rp/
+./
   apps/web/                 Aplicação web responsiva.
   packages/game-engine/     Regras e lógica conceitual do motor de cenas.
   packages/shared/          Tipos, constantes e contratos compartilhados.
@@ -96,4 +96,4 @@ telesoccer-rp/
 
 ## Estado atual
 
-Este projeto está na fase de documentação e organização inicial. As próximas etapas devem criar a aplicação web, configurar ferramentas de desenvolvimento e iniciar o MVP com autenticação, personagem, clubes e motor de cenas.
+Este projeto está na fase de fundação técnica: a aplicação web mobile-first já foi criada com Next.js, TypeScript e Tailwind CSS, mas autenticação, banco de dados e motor de partida ainda não foram implementados.
