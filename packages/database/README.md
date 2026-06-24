@@ -1,7 +1,13 @@
 # packages/database
 
-Pacote reservado para organização futura do banco de dados.
+Pacote reservado para organização do banco de dados do Telesoccer RP.
 
-Aqui poderão ficar schema, migrations, seeds e utilitários usando Drizzle ou Prisma com PostgreSQL/Supabase.
+## Decisão atual
 
-Nesta etapa nenhum banco foi implementado.
+- O MVP usará Railway PostgreSQL como banco principal.
+- Drizzle ORM será usado para schema e migrations, salvo impedimento técnico futuro.
+- Supabase não será usado no MVP inicial, salvo nova decisão técnica registrada na documentação.
+
+## Estado atual
+
+A estrutura inicial existe em `src/schema/`, mas nenhuma tabela real foi criada ainda. O schema completo deve ser criado somente quando as etapas de autenticação, personagens, clubes e partidas forem implementadas.
