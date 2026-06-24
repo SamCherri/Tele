@@ -17,10 +17,11 @@ Telesoccer RP é um jogo de futebol online 11vs11 em que todos os atletas são p
 - Next.js.
 - TypeScript.
 - Tailwind CSS.
-- Supabase.
+- Railway para deploy.
+- Railway PostgreSQL.
 - PostgreSQL.
-- Supabase Auth.
-- Supabase Realtime.
+- Drizzle ORM para schema e migrations.
+- Auth.js ou Better Auth a avaliar para autenticação futura.
 
 ## Regras do MVP
 
@@ -48,7 +49,7 @@ Crie:
 
 1. Estrutura de pastas.
 2. App web mobile-first.
-3. Cadastro/login com Supabase Auth.
+3. Preparação para autenticação futura com Auth.js ou Better Auth, sem implementar login antes da decisão técnica.
 4. Perfil do usuário.
 5. Criação de personagem jogador.
 6. Posições completas: GOL, LD, LE, ZAG, VOL, MC, MEI, PD, PE, SA, ATA.
@@ -85,7 +86,7 @@ packages/game-engine
 
 ## Entidades de banco iniciais
 
-Crie modelos/tabelas conceituais para:
+Planeje modelos/tabelas conceituais para Railway PostgreSQL/Drizzle:
 
 - users/profiles.
 - players.

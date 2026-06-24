@@ -26,13 +26,16 @@ O MVP deve focar em:
 - Decisões com timer de 15 segundos.
 - Penalidades automáticas para jogadores offline ou sem resposta.
 - Base para carreira, estatísticas, ranking e moderação.
+- Fundação técnica preparada para deploy na Railway com PostgreSQL gerenciado pela Railway.
 
 Não fazem parte desta etapa:
 
 - APK Android.
-- Banco de dados implementado.
-- Autenticação implementada.
+- Login/autenticação implementada.
+- Criação de personagem implementada.
+- Banco de dados com schema completo implementado.
 - Motor completo de jogo.
+- WebSocket/realtime implementado.
 - Sistemas pay-to-win.
 - Futebol de controle livre.
 
@@ -50,18 +53,30 @@ Não fazem parte desta etapa:
 - O cliente nunca calcula resultado de partida.
 - O servidor deve ser autoritativo e fonte da verdade.
 
-## Stack recomendada
+## Stack recomendada para o MVP
 
 - Next.js
 - TypeScript
 - Tailwind CSS
-- Supabase
+- Railway como plataforma principal de deploy
+- Railway PostgreSQL como banco principal do MVP
 - PostgreSQL
-- Supabase Auth
-- Supabase Realtime
-- Supabase Storage
-- Drizzle ou Prisma
+- Drizzle ORM para schema e migrations, salvo impedimento técnico futuro
+- Auth.js ou Better Auth a avaliar para autenticação
 - Futuro APK com Capacitor
+
+Supabase não será usado no MVP inicial, salvo nova decisão técnica futura registrada na documentação.
+
+## Variáveis de ambiente
+
+Copie `.env.example` para `.env.local` no desenvolvimento local quando precisar conectar serviços reais.
+Em produção, não dependa de arquivo `.env`: configure as variáveis diretamente no serviço da Railway.
+
+Variáveis previstas:
+
+- `DATABASE_URL`: URL de conexão do PostgreSQL, fornecida pelo Railway PostgreSQL.
+- `AUTH_SECRET`: segredo da futura camada de autenticação.
+- `NEXT_PUBLIC_APP_URL`: URL pública da aplicação web.
 
 ## Organização do projeto
 
@@ -71,12 +86,12 @@ Não fazem parte desta etapa:
   packages/game-engine/     Regras e lógica conceitual do motor de cenas.
   packages/shared/          Tipos, constantes e contratos compartilhados.
   packages/ui/              Componentes visuais reutilizáveis.
-  packages/database/        Organização futura do schema e migrations.
+  packages/database/        Organização futura do schema e migrations com Drizzle/PostgreSQL.
   public/assets/            Assets públicos de cenas, avatares e cosméticos.
-  supabase/                 Configurações futuras do Supabase.
-  tests/                    Testes automatizados futuros.
   docs/                     Documentação de produto, técnica e roadmap.
 ```
+
+A pasta `supabase/` pode existir por histórico do repositório, mas não representa a estratégia do MVP inicial após a decisão por Railway + PostgreSQL.
 
 ## Documentação principal
 
@@ -93,7 +108,8 @@ Não fazem parte desta etapa:
 - [Stack e GitHub](docs/11_TECH_STACK_GITHUB.md)
 - [Prompt futuro para Codex](docs/12_CODEX_PROMPT.md)
 - [Registro de decisões](docs/13_DECISION_LOG.md)
+- [Deploy Railway](docs/14_RAILWAY_DEPLOY.md)
 
 ## Estado atual
 
-Este projeto está na fase de fundação técnica: a aplicação web mobile-first já foi criada com Next.js, TypeScript e Tailwind CSS, mas autenticação, banco de dados e motor de partida ainda não foram implementados.
+Este projeto está na fase de fundação técnica: a aplicação web mobile-first já foi criada com Next.js, TypeScript e Tailwind CSS. Esta etapa prepara o deploy na Railway e reserva a camada de banco para Railway PostgreSQL com Drizzle, mas autenticação, schema completo, criação de personagem e motor de partida ainda não foram implementados.
