@@ -61,7 +61,7 @@ Não fazem parte desta etapa:
 - Railway como plataforma principal de deploy
 - Railway PostgreSQL como banco principal do MVP
 - PostgreSQL
-- Drizzle ORM para schema e migrations
+- Drizzle ORM para schema e migrations, salvo impedimento técnico futuro
 - `pg`/node-postgres para conexão com PostgreSQL
 - Auth.js ou Better Auth a avaliar para autenticação
 - Futuro APK com Capacitor
@@ -81,7 +81,7 @@ Variáveis previstas:
 
 ## Banco de dados
 
-A base inicial do banco já existe em `packages/database` com Drizzle ORM e PostgreSQL.
+A base inicial do banco evoluiu do placeholder da PR #3 para um schema real em `packages/database` com Drizzle ORM e PostgreSQL.
 
 Tabelas iniciais versionadas:
 

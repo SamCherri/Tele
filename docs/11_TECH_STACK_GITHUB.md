@@ -28,7 +28,7 @@
 ### Banco de dados
 
 - PostgreSQL.
-- Drizzle ORM para schema e migrations.
+- Drizzle ORM para schema e migrations, salvo impedimento técnico.
 - drizzle-kit para geração e execução controlada de migrations.
 - `pg`/node-postgres como driver de conexão.
 - `DATABASE_URL` como variável padrão de conexão.

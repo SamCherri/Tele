@@ -7,7 +7,7 @@ Este documento explica o plano de deploy do Telesoccer RP na Railway.
 - Railway será a plataforma principal de deploy do MVP.
 - Railway PostgreSQL será o banco principal.
 - Supabase não será usado no MVP inicial, salvo decisão futura registrada no log de decisões.
-- Drizzle ORM será usado para schema e migrations.
+- Drizzle ORM será usado para schema e migrations, salvo impedimento técnico.
 - Auth.js ou Better Auth será avaliado futuramente para autenticação.
 
 ## 1. Criar o projeto na Railway
