@@ -1,3 +1,4 @@
-export const DATABASE_PACKAGE = "@telesoccer-rp/database";
+export { closeDatabaseConnection, createDatabaseClient, db } from "./client";
+export * from "./schema/index";
 
-export type DatabaseStatus = "reserved-for-future-postgresql-supabase-schema";
+export const DATABASE_PACKAGE = "@telesoccer-rp/database";

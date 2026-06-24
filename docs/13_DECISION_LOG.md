@@ -50,7 +50,14 @@ Este arquivo registra decisões já tomadas para evitar confusão durante o dese
 
 ## Tecnologia
 
-- Stack recomendada: Next.js, TypeScript, Tailwind CSS, Supabase e PostgreSQL.
+- Stack recomendada para o MVP: Next.js, TypeScript, Tailwind CSS, Railway e PostgreSQL.
+- Railway será a plataforma principal de deploy do MVP.
+- Railway PostgreSQL será o banco principal do MVP.
+- Supabase não será usado no MVP inicial, salvo nova decisão futura registrada neste arquivo.
+- Drizzle ORM será usado para schema e migrations.
+- A primeira base real do banco contém `users`, `profiles`, `players` e `player_attributes`.
+- Auth.js ou Better Auth será avaliado antes de implementar autenticação.
+- `password_hash` permanece nullable até a decisão final de autenticação.
 - Futuro APK recomendado via Capacitor.
 
 ## Escopo

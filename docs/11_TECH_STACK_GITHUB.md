@@ -7,10 +7,11 @@
 - Servidor autoritativo.
 - Separar motor de jogo da interface.
 - Código TypeScript.
-- Banco relacional.
+- Banco relacional PostgreSQL.
+- Deploy simples e reproduzível na Railway.
 - Logs de partida desde o começo.
 
-## Stack recomendada
+## Stack recomendada para o MVP
 
 ### Frontend / Fullstack web
 
@@ -18,14 +19,29 @@
 - TypeScript.
 - Tailwind CSS.
 
-### Backend inicial
+### Deploy e infraestrutura
 
-- Supabase.
+- Railway como plataforma principal de deploy.
+- Railway PostgreSQL como banco principal do MVP.
+- Variáveis de ambiente configuradas diretamente no serviço da Railway em produção.
+
+### Banco de dados
+
 - PostgreSQL.
-- Supabase Auth.
-- Supabase Realtime.
-- Supabase Storage.
-- Edge Functions ou rotas de servidor para lógica sensível.
+- Drizzle ORM para schema e migrations.
+- drizzle-kit para geração e execução controlada de migrations.
+- `pg`/node-postgres como driver de conexão.
+- `DATABASE_URL` como variável padrão de conexão.
+
+### Autenticação futura
+
+- Auth.js ou Better Auth será avaliado antes da implementação do login.
+- Login não faz parte desta etapa.
+
+### Fora do MVP inicial
+
+- Supabase não será usado no MVP inicial, salvo decisão futura registrada em `docs/13_DECISION_LOG.md`.
+- WebSocket/realtime ainda não será implementado nesta etapa.
 
 ### Futuro APK
 
@@ -55,12 +71,11 @@ telesoccer-rp/
   packages/
     game-engine/
     database/
+      src/
+        schema/
     shared/
     ui/
   docs/
-  supabase/
-    migrations/
-    functions/
   public/
     assets/
       scenes/
@@ -68,13 +83,9 @@ telesoccer-rp/
       cosmetics/
   tests/
   README.md
-  GAME_DESIGN.md
-  MVP_SCOPE.md
-  MATCH_ENGINE.md
-  DATABASE_SCHEMA.md
-  ROADMAP.md
-  CODEX_PROMPT.md
 ```
+
+A pasta `supabase/` pode existir temporariamente por histórico, mas não deve orientar novas implementações do MVP sem uma nova decisão técnica.
 
 ## Packages
 
@@ -87,7 +98,7 @@ Contém:
 - Rotas.
 - Telas.
 - Componentes de página.
-- Integração com autenticação.
+- Integração futura com autenticação.
 - Consumo de APIs.
 
 ### packages/game-engine
@@ -106,10 +117,11 @@ Contém:
 
 Contém:
 
-- Tipos de banco.
-- Queries compartilhadas.
-- Schemas.
-- Migrations, se aplicável.
+- Schema Drizzle inicial.
+- Migrations versionadas.
+- Client PostgreSQL com carregamento seguro de `DATABASE_URL`.
+- Tipos TypeScript inferidos do schema.
+- Ponto único para evoluir o acesso ao PostgreSQL.
 
 ### packages/shared
 

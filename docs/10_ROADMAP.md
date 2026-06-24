@@ -22,11 +22,16 @@ Entregas:
 
 - Repositório GitHub.
 - App web mobile-first.
-- Autenticação.
+- Deploy preparado para Railway.
+- Railway PostgreSQL configurado como banco principal.
+- Drizzle configurado para schema e migrations.
+- Schema inicial de usuários, perfis, jogadores e atributos.
+- Migration inicial versionada.
 - Layout base.
-- Banco inicial.
-- Perfis.
-- Criação de jogador.
+- Autenticação a avaliar com Auth.js ou Better Auth.
+- Fluxo visual de login em fase posterior.
+- Fluxo visual de perfil em fase posterior.
+- Criação de jogador no app em fase posterior.
 
 ## Fase 2 — Clubes e cargos
 

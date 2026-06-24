@@ -8,9 +8,19 @@
   "scripts": {
     "build": "tsc --noEmit",
     "lint": "tsc --noEmit",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate --config drizzle.config.ts",
+    "db:migrate": "drizzle-kit migrate --config drizzle.config.ts",
+    "db:push": "drizzle-kit push --config drizzle.config.ts",
+    "db:studio": "drizzle-kit studio --config drizzle.config.ts"
   },
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "drizzle-kit": "^0.27.1",
+    "@types/pg": "^8.11.10"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.36.4",
+    "pg": "^8.13.1"
   }
 }
