@@ -41,7 +41,7 @@ O arquivo `apps/web/next.config.mjs` usa `output: "standalone"` para facilitar e
 1. Dentro do projeto Railway, adicione um serviço PostgreSQL.
 2. Aguarde a criação do banco.
 3. Copie a variável de conexão fornecida pela Railway.
-4. Garanta que o serviço web tenha acesso à variável `DATABASE_URL`.
+4. Garanta que o serviço web tenha acesso à variável `DATABASE_URL`. Essa variável vem do serviço Railway PostgreSQL e deve ser configurada no painel da Railway.
 
 ## 5. Variáveis de ambiente
 
@@ -63,21 +63,22 @@ Para desenvolvimento local, copie `.env.example` para `.env.local` e preencha ap
 
 ## 6. Migrations futuras
 
-As migrations ainda não foram implementadas nesta etapa.
+A migration inicial do Drizzle já existe no repositório em `packages/database/drizzle`. Ela cria as tabelas mínimas de usuários, perfis, jogadores e atributos.
 
-Quando o schema Drizzle existir, o fluxo recomendado será:
+O fluxo recomendado é:
 
-1. Gerar migrations no pacote `packages/database`.
+1. Gerar migrations no pacote `packages/database` com `pnpm db:generate`.
 2. Testar localmente contra um PostgreSQL de desenvolvimento.
-3. Rodar migrations antes do deploy ou como etapa controlada de release.
-4. Evitar migrations automáticas perigosas sem revisão.
+3. Rodar migrations com `pnpm db:migrate` usando uma `DATABASE_URL` segura.
+4. Executar migrations de produção de forma controlada, antes do deploy ou como etapa revisada de release.
+5. Evitar migrations automáticas perigosas sem revisão.
 
-No futuro, a Railway poderá executar migrations em uma etapa de pre-deploy, mas isso deve ser configurado somente quando houver schema real e processo seguro de rollback.
+A Railway poderá executar migrations em uma etapa de pre-deploy futuramente, mas isso deve ser configurado somente quando o processo de rollback e validação estiver definido.
 
 ## 7. O que esta etapa não implementa
 
-- Login.
-- Criação de personagem.
+- Login, que deve ser implementado em PR futura.
+- Tela/fluxo de criação de personagem, que deve ser implementado em PR futura.
 - Partidas.
 - WebSocket/realtime.
 - APK Android.

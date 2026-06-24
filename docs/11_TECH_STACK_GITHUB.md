@@ -29,6 +29,8 @@
 
 - PostgreSQL.
 - Drizzle ORM para schema e migrations, salvo impedimento técnico.
+- drizzle-kit para geração e execução controlada de migrations.
+- `pg`/node-postgres como driver de conexão.
 - `DATABASE_URL` como variável padrão de conexão.
 
 ### Autenticação futura
@@ -115,9 +117,10 @@ Contém:
 
 Contém:
 
-- Schema Drizzle futuro.
-- Migrations futuras.
-- Tipos e utilitários de banco.
+- Schema Drizzle inicial.
+- Migrations versionadas.
+- Client PostgreSQL com carregamento seguro de `DATABASE_URL`.
+- Tipos TypeScript inferidos do schema.
 - Ponto único para evoluir o acesso ao PostgreSQL.
 
 ### packages/shared

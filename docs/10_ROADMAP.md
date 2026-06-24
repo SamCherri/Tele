@@ -24,12 +24,14 @@ Entregas:
 - App web mobile-first.
 - Deploy preparado para Railway.
 - Railway PostgreSQL configurado como banco principal.
-- Drizzle preparado para schema e migrations.
+- Drizzle configurado para schema e migrations.
+- Schema inicial de usuários, perfis, jogadores e atributos.
+- Migration inicial versionada.
 - Layout base.
 - Autenticação a avaliar com Auth.js ou Better Auth.
-- Banco inicial em fase posterior.
-- Perfis em fase posterior.
-- Criação de jogador em fase posterior.
+- Fluxo visual de login em fase posterior.
+- Fluxo visual de perfil em fase posterior.
+- Criação de jogador no app em fase posterior.
 
 ## Fase 2 — Clubes e cargos
 

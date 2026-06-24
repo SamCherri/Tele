@@ -62,6 +62,7 @@ Não fazem parte desta etapa:
 - Railway PostgreSQL como banco principal do MVP
 - PostgreSQL
 - Drizzle ORM para schema e migrations, salvo impedimento técnico futuro
+- `pg`/node-postgres para conexão com PostgreSQL
 - Auth.js ou Better Auth a avaliar para autenticação
 - Futuro APK com Capacitor
 
@@ -77,6 +78,26 @@ Variáveis previstas:
 - `DATABASE_URL`: URL de conexão do PostgreSQL, fornecida pelo Railway PostgreSQL.
 - `AUTH_SECRET`: segredo da futura camada de autenticação.
 - `NEXT_PUBLIC_APP_URL`: URL pública da aplicação web.
+
+## Banco de dados
+
+A base inicial do banco evoluiu do placeholder da PR #3 para um schema real em `packages/database` com Drizzle ORM e PostgreSQL.
+
+Tabelas iniciais versionadas:
+
+- `users`: conta base para autenticação futura.
+- `profiles`: perfil público ligado ao usuário.
+- `players`: personagem/atleta principal do usuário.
+- `player_attributes`: atributos iniciais do atleta para uso futuro pelo motor servidor.
+
+Scripts disponíveis na raiz:
+
+- `pnpm db:generate`: gera migrations Drizzle a partir do schema.
+- `pnpm db:migrate`: executa migrations usando `DATABASE_URL`.
+- `pnpm db:push`: aplica schema diretamente em banco de desenvolvimento.
+- `pnpm db:studio`: abre o Drizzle Studio.
+
+Não há login, tela de cadastro ou tela de criação de personagem nesta etapa.
 
 ## Organização do projeto
 
@@ -112,4 +133,4 @@ A pasta `supabase/` pode existir por histórico do repositório, mas não repres
 
 ## Estado atual
 
-Este projeto está na fase de fundação técnica: a aplicação web mobile-first já foi criada com Next.js, TypeScript e Tailwind CSS. Esta etapa prepara o deploy na Railway e reserva a camada de banco para Railway PostgreSQL com Drizzle, mas autenticação, schema completo, criação de personagem e motor de partida ainda não foram implementados.
+Este projeto está na fase de fundação técnica: a aplicação web mobile-first já foi criada com Next.js, TypeScript e Tailwind CSS. Esta etapa prepara o deploy na Railway e cria o schema inicial do Railway PostgreSQL com Drizzle para usuários, perfis, jogadores e atributos. Autenticação visual, tela de cadastro, criação de personagem no app, clubes, partidas e motor de partida ainda não foram implementados.
