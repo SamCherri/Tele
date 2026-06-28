@@ -169,3 +169,7 @@ Padrão recomendado:
 - Substituições.
 - Permissões de técnico/presidente.
 - Segurança de resultado no servidor.
+
+## Atualização PR #5 — Autenticação
+
+A autenticação inicial usa Auth.js/NextAuth no app Next.js com provider de credenciais, sessão JWT e senha protegida com bcrypt. A validação de formulários usa Zod. O armazenamento principal segue em Railway PostgreSQL via Drizzle.

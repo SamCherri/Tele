@@ -97,7 +97,7 @@ Scripts disponíveis na raiz:
 - `pnpm db:push`: aplica schema diretamente em banco de desenvolvimento.
 - `pnpm db:studio`: abre o Drizzle Studio.
 
-Não há login, tela de cadastro ou tela de criação de personagem nesta etapa.
+A partir da PR #5, o projeto possui cadastro, login, perfil protegido e criação do personagem inicial usando o schema acima.
 
 ## Organização do projeto
 
@@ -133,4 +133,29 @@ A pasta `supabase/` pode existir por histórico do repositório, mas não repres
 
 ## Estado atual
 
-Este projeto está na fase de fundação técnica: a aplicação web mobile-first já foi criada com Next.js, TypeScript e Tailwind CSS. Esta etapa prepara o deploy na Railway e cria o schema inicial do Railway PostgreSQL com Drizzle para usuários, perfis, jogadores e atributos. Autenticação visual, tela de cadastro, criação de personagem no app, clubes, partidas e motor de partida ainda não foram implementados.
+Este projeto está na fase de MVP inicial: a aplicação web mobile-first já foi criada com Next.js, TypeScript e Tailwind CSS, o schema Drizzle/PostgreSQL existe para usuários, perfis, jogadores e atributos, e a PR #5 adiciona cadastro, login, perfil protegido e criação do personagem inicial. Clubes, partidas, WebSocket e motor de partida ainda não foram implementados.
+
+## PR #5 — Autenticação, perfil e personagem inicial
+
+Esta etapa adiciona a primeira funcionalidade real do MVP: cadastro com e-mail/senha, login, logout, perfil protegido e criação do primeiro personagem. A autenticação usa Auth.js/NextAuth com provider de credenciais e senha com hash bcrypt. O banco usado é o PostgreSQL configurado em `DATABASE_URL`, reaproveitando as tabelas Drizzle `users`, `profiles`, `players` e `player_attributes`.
+
+### Ambiente local
+
+Crie `apps/web/.env.local` ou `.env.local` na raiz do serviço web com:
+
+```env
+DATABASE_URL=postgresql://usuario:senha@host:porta/banco
+AUTH_SECRET=gere-um-segredo-forte-e-privado
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+Em produção, a `DATABASE_URL` deve vir do Railway PostgreSQL e o `AUTH_SECRET` deve ser forte, privado e configurado como variável de ambiente do serviço — nunca commitado no repositório.
+
+### Como rodar
+
+1. `pnpm install`
+2. `pnpm db:push` ou `pnpm db:migrate` com `DATABASE_URL` configurada
+3. `pnpm dev`
+4. Acesse `/register`, crie conta, entre em `/login`, abra `/profile` e crie o personagem em `/player/create`.
+
+Clubes, partidas, WebSocket, loja, APK e motor de cenas continuam fora desta PR.

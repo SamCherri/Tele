@@ -10,8 +10,9 @@ export const MVP_RULES = [
 export const PLAYER_POSITIONS = ["GOL", "LD", "LE", "ZAG", "VOL", "MC", "MEI", "PD", "PE", "SA", "ATA"] as const;
 export type PlayerPosition = (typeof PLAYER_POSITIONS)[number];
 
-export const PLAYER_FEET = ["right", "left"] as const;
-export type PlayerFoot = (typeof PLAYER_FEET)[number];
+export const DOMINANT_FOOTS = ["right", "left"] as const;
+export const PLAYER_FEET = DOMINANT_FOOTS;
+export type PlayerFoot = (typeof DOMINANT_FOOTS)[number];
 
 export const PLAYER_STYLES = [
   "balanced",
@@ -24,8 +25,7 @@ export const PLAYER_STYLES = [
 ] as const;
 export type PlayerStyle = (typeof PLAYER_STYLES)[number];
 
-export type CreatePlayerInput = {
-  profileId: string;
+export type PlayerCreationInput = {
   athleteName: string;
   nickname?: string;
   position: PlayerPosition;
@@ -33,6 +33,10 @@ export type CreatePlayerInput = {
   heightCm: number;
   weightKg: number;
   style: PlayerStyle;
+};
+
+export type CreatePlayerInput = PlayerCreationInput & {
+  profileId: string;
 };
 
 export type CreatePlayerAttributesInput = {
