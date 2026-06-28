@@ -119,3 +119,14 @@ Logs de ações administrativas e eventos importantes para auditoria, moderaçã
 ## Observação
 
 Este modelo é a primeira base real do banco, mas ainda é mínimo. A estrutura definitiva deve considerar integridade adicional, índices, validações de domínio, performance, auditoria, segurança das rotas do servidor e regras de negócio do MVP.
+
+## Atualização PR #5 — Uso do modelo na autenticação
+
+O MVP agora usa as tabelas já criadas na PR #4 para o fluxo inicial:
+
+- `users`: armazena e-mail, papel e `password_hash` gerado com bcrypt para login por credenciais.
+- `profiles`: armazena o nome de exibição criado no cadastro.
+- `players`: armazena o personagem inicial do usuário. A restrição única por `user_id` impede mais de um personagem atual.
+- `player_attributes`: armazena os atributos iniciais gerados no servidor conforme a posição principal.
+
+A aplicação não confia no cliente para definir `user_id`; o usuário é obtido pela sessão autenticada. A senha nunca deve ser retornada para telas ou APIs.

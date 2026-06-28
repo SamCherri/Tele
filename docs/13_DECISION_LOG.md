@@ -65,3 +65,7 @@ Este arquivo registra decisões já tomadas para evitar confusão durante o dese
 - O MVP deve provar o núcleo de jogo.
 - Não implementar tudo de uma vez.
 - Carreira avançada, legado, transferências e campeonatos complexos ficam para fases futuras.
+
+## PR #5 — Decisão de autenticação
+
+Foi escolhido Auth.js/NextAuth como base inicial de autenticação, usando provider de credenciais para e-mail/senha. O adapter Drizzle não foi adotado nesta etapa porque o schema existente do MVP já possui `users` e `profiles`, enquanto o adapter adicionaria tabelas específicas de contas/sessões que não são necessárias para o primeiro fluxo com credenciais. A arquitetura continua preparada para evoluir para providers externos ou adapter dedicado no futuro.

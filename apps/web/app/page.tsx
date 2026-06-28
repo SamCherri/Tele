@@ -1,4 +1,5 @@
 import { PROJECT_NAME, MVP_RULES } from "@telesoccer-rp/shared";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -21,8 +22,11 @@ export default function HomePage() {
         </div>
 
         <div className="mt-8 grid gap-3">
-          <button className="rounded-2xl bg-neon px-5 py-4 font-bold text-slate-950">Entrar em breve</button>
-          <p className="text-center text-xs text-slate-300">Autenticação, banco e motor de partida serão implementados em etapas futuras.</p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <Link href="/login" className="rounded-2xl bg-neon px-5 py-4 text-center font-bold text-slate-950">Entrar</Link>
+            <Link href="/register" className="rounded-2xl border border-neon/60 px-5 py-4 text-center font-bold text-neon">Criar conta</Link>
+          </div>
+          <p className="text-center text-xs text-slate-300">Cadastro, login e personagem inicial já estão disponíveis. Partidas e clubes virão depois.</p>
         </div>
       </section>
     </main>

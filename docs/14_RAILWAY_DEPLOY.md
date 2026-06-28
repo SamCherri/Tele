@@ -83,3 +83,13 @@ A Railway poderá executar migrations em uma etapa de pre-deploy futuramente, ma
 - WebSocket/realtime.
 - APK Android.
 - Sistemas pay-to-win.
+
+## Atualização PR #5 — Variáveis de autenticação
+
+Para testar cadastro/login em produção no Railway, configure no serviço web:
+
+- `DATABASE_URL`: URL do Railway PostgreSQL.
+- `AUTH_SECRET`: segredo forte e privado usado pelo Auth.js/NextAuth.
+- `NEXT_PUBLIC_APP_URL`: URL pública do app web.
+
+Depois de configurar as variáveis, rode as migrações Drizzle antes de usar cadastro, login e criação de personagem.

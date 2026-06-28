@@ -162,3 +162,14 @@ Entregas:
 - Testes em dispositivos.
 - Push notifications.
 - Publicação controlada.
+
+## Atualização PR #5
+
+Concluído nesta etapa:
+
+- Cadastro/login/logout.
+- Perfil básico protegido por sessão.
+- Criação do primeiro personagem.
+- Geração de atributos iniciais por posição no servidor.
+
+Próximo passo recomendado: melhorar onboarding pós-cadastro e, depois, iniciar a base de clubes somente quando o fluxo de personagem estiver validado.

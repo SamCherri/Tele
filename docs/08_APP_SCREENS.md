@@ -209,3 +209,13 @@ O jogador deve entender em até 3 segundos:
 - Quais decisões pode tomar.
 - Quanto tempo resta.
 - O que aconteceu depois.
+
+## Atualização PR #5 — Telas implementadas
+
+- `/`: home mobile-first com botões reais de entrar e criar conta, mantendo aviso de que clubes e partidas virão depois.
+- `/register`: cadastro com e-mail, senha e nome de exibição.
+- `/login`: login por e-mail e senha.
+- `/profile`: tela protegida que mostra nome, e-mail e status do personagem.
+- `/player/create`: tela protegida para criar o personagem inicial com uma posição principal, pé dominante, altura, peso e estilo.
+
+O personagem começa com 16 anos, carreira ativa e atributos modestos criados no servidor.
